@@ -73,8 +73,8 @@ fn run_command(cmd: &str) -> Result<f64> {
         cmd.arg("/C");
         cmd
     } else {
-        let mut cmd = Command::new("sh");
-        cmd.arg("-c");
+        let mut cmd = Command::new("zsh");
+        cmd.arg("-ic");
         cmd
     };
     let output = output.arg(cmd).output()?;
