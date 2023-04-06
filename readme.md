@@ -6,6 +6,8 @@ Easily create graphs from cli commands and view them in the terminal. Like the `
 
 I also work on [Robusta](https://github.com/robusta-dev/robusta) - a Kubernetes monitoring and automation platform. It makes your Prometheus alerts better.
 
+Joe Schaefer (joesuf4) forked this repo to make it zsh -ic friendly, so his github.com/joesuf4/home/tree/wsl rcfiles work cleanly as command-line args to `swag`.
+
 # Demo
 
 ![](./images/readme-example.gif)
