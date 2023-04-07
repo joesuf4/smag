@@ -51,13 +51,13 @@ pub fn draw_ui<T: tui::backend::Backend>(
                 );
 
                 f.render_widget(
-                    Paragraph::new(format!("last {:+?}", data_store.last(cmd_id) as u64))
+                    Paragraph::new(format!("last {:?}", data_store.last(cmd_id) as u64))
                         .style(style),
                     header_layout[1],
                 );
 
                 f.render_widget(
-                    Paragraph::new(format!("min {:+?}", stats.minimum().unwrap_or(0))).style(style),
+                    Paragraph::new(format!("min {:?}", stats.minimum().unwrap_or(0))).style(style),
                     header_layout[2],
                 );
                 f.render_widget(
