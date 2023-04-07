@@ -71,7 +71,7 @@ pub fn draw_ui<T: tui::backend::Backend>(
                         .style(style),
                     header_layout[4],
                 );
-            }
+}
 
             let datasets: Vec<_> = data_store
                 .data
