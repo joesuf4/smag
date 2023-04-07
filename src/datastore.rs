@@ -65,7 +65,7 @@ impl DataStore {
             .collect()
     }
 
-    pub fun negstats(&self) -> Vec<Histogram> {
+    pub fn negstats(&self) -> Vec<Histogram> {
 
         self.data
             .iter()
