@@ -66,7 +66,6 @@ impl DataStore {
     }
 
     pub fn negstats(&self) -> Vec<Histogram> {
-
         self.data
             .iter()
             .map(|data| {
