@@ -24,11 +24,12 @@ pub fn draw_ui<T: tui::backend::Backend>(
                         .as_ref(),
                 )
                 .split(f.size());
-            for (((cmd_id, cmd), stats), &style) in args
+            for (((cmd_id, cmd), stats, negstats, &style) in args
                 .cmds
                 .iter()
                 .enumerate()
                 .zip(data_store.stats())
+                .zip(data_store.negstats())
                 .zip(&data_store.styles)
             {
                 let header_layout = Layout::default()
@@ -51,13 +52,14 @@ pub fn draw_ui<T: tui::backend::Backend>(
                 );
 
                 f.render_widget(
-                    Paragraph::new(format!("last {:?}", data_store.last(cmd_id) as u64))
+                    Paragraph::new(format!("last {:?}", data_store.last(cmd_id) as i64))
                         .style(style),
                     header_layout[1],
                 );
 
+                let minpar = if args.diff {Paragraph::new(format!("min -{:?}", negstats.maximum().unwrap_or(0)))} else {Paragraph::new(format!("min {:?}", stats.minimum().unwrap_or(0)))};
                 f.render_widget(
-                    Paragraph::new(format!("min {:?}", stats.minimum().unwrap_or(0))).style(style),
+                    minpar.style(style),
                     header_layout[2],
                 );
                 f.render_widget(
