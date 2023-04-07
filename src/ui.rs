@@ -24,7 +24,7 @@ pub fn draw_ui<T: tui::backend::Backend>(
                         .as_ref(),
                 )
                 .split(f.size());
-            for (((cmd_id, cmd), stats, negstats, &style) in args
+            for ((((cmd_id, cmd), stats), negstats), &style) in args
                 .cmds
                 .iter()
                 .enumerate()
