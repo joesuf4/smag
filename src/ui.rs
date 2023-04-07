@@ -57,7 +57,7 @@ pub fn draw_ui<T: tui::backend::Backend>(
                 );
 
                 f.render_widget(
-                    Paragraph::new(format!("min {:?}", stats.minimum().unwrap_or(0))).style(style),
+                    Paragraph::new(format!("min {:-?}", stats.minimum().unwrap_or(0))).style(style),
                     header_layout[2],
                 );
                 f.render_widget(
