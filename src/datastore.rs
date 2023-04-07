@@ -96,7 +96,7 @@ impl DataStore {
         let max = iter.fold(0f64, |a, b| a.max(b));
         // Add a 10% buffer to the top and bottom
         let max_10_percent = (max * 10_f64) / 100_f64;
-        let min_10_percent = (min * 10_f64) / 100_f64;
+        let min_10_percent = (min.abs() * 10_f64) / 100_f64;
         [min - min_10_percent, max + max_10_percent]
     }
 
