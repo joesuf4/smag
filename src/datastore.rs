@@ -64,6 +64,22 @@ impl DataStore {
             })
             .collect()
     }
+
+    pub fun negstats(&self) -> Vec<Histogram> {
+
+        self.data
+            .iter()
+            .map(|data| {
+                let mut hist = Histogram::new();
+
+                for (_, val) in data.iter().filter(|v| v.1 != 0f64) {
+                    hist.increment(-*val as u64).unwrap_or(());
+                }
+
+                hist
+            })
+            .collect()
+    }
     pub fn x_axis_bounds(&self) -> [f64; 2] {
         [
             self.window_min.iter().fold(f64::INFINITY, |a, &b| a.min(b)),
