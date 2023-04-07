@@ -57,7 +57,7 @@ impl DataStore {
                 let mut hist = Histogram::new();
 
                 for (_, val) in data.iter().filter(|v| v.1 != 0f64) {
-                    hist.increment(*val as f64).unwrap_or(());
+                    hist.increment(*val as u64).unwrap_or(());
                 }
 
                 hist
