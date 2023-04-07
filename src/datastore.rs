@@ -98,7 +98,7 @@ impl DataStore {
         let max_10_percent = (max * 10_f64) / 100_f64;
         let min_10_percent = (min.abs() * 10_f64) / 100_f64;
         let bdry = max.max(min.abs());
-        if min > 0.0 { [min - min_10_percent, max + max_10_percent ] } else { [ -bdry - max_10_percent.max(min_10_percent), bdry + max_10_percent.max(min_10_percent)]}
+        if min > 0.0 { [min - min_10_percent, max + max_10_percent ] } else { [-bdry - max_10_percent.max(min_10_percent), bdry + max_10_percent.max(min_10_percent)] }
     }
 
     fn format_tick(&self, increment: f64, value: f64) -> String {
