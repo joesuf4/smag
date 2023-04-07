@@ -44,8 +44,7 @@ impl<T: Copy + Default> FixedRingBuffer<T> {
     }
 
     pub fn last(&self) -> &T {
-        let idx = if self.buf.len() > 0 {self.buf.len()-1} else {self.head};
-        &self.buf[idx]
+        &self.buf[self.buf.len()-1]
     }
 }
 
