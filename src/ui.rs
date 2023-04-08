@@ -36,11 +36,11 @@ pub fn draw_ui<T: tui::backend::Backend>(
                     .direction(Direction::Horizontal)
                     .constraints(
                         [
-                            Constraint::Percentage(20),
-                            Constraint::Percentage(20),
-                            Constraint::Percentage(20),
-                            Constraint::Percentage(20),
-                            Constraint::Percentage(20),
+                            Constraint::Percentage(60),
+                            Constraint::Percentage(10),
+                            Constraint::Percentage(10),
+                            Constraint::Percentage(10),
+                            Constraint::Percentage(10),
                         ]
                         .as_ref(),
                     )
